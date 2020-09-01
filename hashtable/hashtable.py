@@ -165,7 +165,19 @@ class HashTable:
         Implement this.
         """
         # Your code here
-        return 0
+        idx = self.hash_index(key)
+
+        if self.storage[idx] is not None and self.storage[idx].key == key:
+            return self.storage[idx].value
+        elif self.storage[idx] is None:
+            return
+        else:
+            while self.storage[idx].next is not None and self.storage[idx].key != key:
+                self.storage[idx] = self.storage[idx].next
+            if self.storage[idx] == None:
+                return
+            else:
+                return self.storage[idx].value
 
     def resize(self, new_capacity):
         """
