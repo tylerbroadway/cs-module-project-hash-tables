@@ -187,7 +187,15 @@ class HashTable:
         Implement this.
         """
         # Your code here
+        previous_table = self.storage[:]
+        previous_capacity = self.capacity
+        self.capacity = new_capacity
+        self.storage = [None] * new_capacity
 
+        for i in range(0, previous_capacity):
+            if previous_table[i] is not None:
+                current_entry = previous_table[i]
+                self.put(current_entry.key, current_entry.value)
 
 if __name__ == "__main__":
     ht = HashTable(8)
