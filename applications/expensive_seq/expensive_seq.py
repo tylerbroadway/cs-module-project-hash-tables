@@ -1,10 +1,13 @@
 # Your code here
+import sys
+sys.path.append("./hashtable")
+from hashtable import HashTable
 
+hst = HashTable()
 
 def expensive_seq(x, y, z):
     # Your code here
-
-
+    pass
 
 if __name__ == "__main__":
     for i in range(10):
